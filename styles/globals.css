@@ -1,15 +1,54 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Varela:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-* {
+@font-face {
+  font-family: "NF";
+  src: url("../assets/NetflixSans-Regular.woff2") format("woff2");
+}
+@font-face {
+  font-family: "NF M";
+  src: url("../assets/NetflixSans-Medium.woff2") format("woff2");
+}
+body {
+  @apply bg-[#121212];
   font-family: Poppins, sans-serif;
 }
-
-body {
-  @apply bg-black;
+.details {
+  font-family: NF M;
+}
+.overview {
+  font-family: NF;
 }
 .icon {
   @apply w-6 h-6;
+}
+.trending:nth-child(1) {
+  @apply !ml-10;
+}
+.cover {
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 70%,
+    transparent 100%
+  );
+}
+.trending-item .item {
+  display: none;
+}
+.trending-item:hover .item {
+  display: flex;
+}
+.video::-webkit-scrollbar {
+  width: 7px;
+}
+.video::-webkit-scrollbar-thumb {
+  @apply bg-netflix rounded-full;
+}
+body::-webkit-scrollbar {
+  width: 7px;
+}
+body::-webkit-scrollbar-thumb {
+  @apply bg-netflix rounded-full;
 }

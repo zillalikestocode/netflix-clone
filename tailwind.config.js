@@ -6,13 +6,13 @@ module.exports = {
   ],
   theme: {
     extend: {
-        colors: {
-        transparent: 'transparent',
-        current: 'currentColor',
-        'netflix': '#e50914',
-        'netflixDark': '#bb1d24',
-        },  
+      colors: {
+        transparent: "transparent",
+        current: "currentColor",
+        netflix: "#e50914",
+        netflixDark: "#bb1d24",
+      },
     },
   },
-  plugins: [],
+  plugins: [require("tailwind-gradient-mask-image")],
 };
