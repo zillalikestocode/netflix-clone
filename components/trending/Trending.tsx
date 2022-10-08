@@ -14,8 +14,9 @@ function Trending({ trending }: any) {
       <div>
         <Swiper
           modules={[Navigation]}
+          slidesPerView="auto"
           navigation={{ nextEl: ".next", prevEl: ".prev" }}
-          className="!flex !pb-10 !relative"
+          className="!flex !pb-10 !justify-center !pt-5 !relative"
         >
           <div className="absolute top-0 flex justify-center right-0 left-0 bottom-0">
             <div className="prev absolute top-12 left-5 cursor-pointer z-50">
