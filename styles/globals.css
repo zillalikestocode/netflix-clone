@@ -12,7 +12,7 @@
   src: url("../assets/NetflixSans-Medium.woff2") format("woff2");
 }
 body {
-  @apply bg-[#121212];
+  @apply bg-black;
   font-family: Poppins, sans-serif;
 }
 .details {
@@ -33,12 +33,6 @@ body {
     rgba(0, 0, 0, 1) 70%,
     transparent 100%
   );
-}
-.trending-item .item {
-  display: none;
-}
-.trending-item:hover .item {
-  display: flex;
 }
 .video::-webkit-scrollbar {
   width: 7px;

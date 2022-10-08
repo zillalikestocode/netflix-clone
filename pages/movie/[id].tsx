@@ -20,11 +20,11 @@ export default function ({ details, similar }: any) {
     fetchImages();
   }, [id]);
   return (
-    <div className="text-white bg-black min-h-screen">
+    <div className="text-white bg-black">
       <Head>
         <title>{details.title}</title>
       </Head>
-      <div className="flex items-end px-10  pt-[72px] gap-10">
+      <div className="flex items-end px-10 gap-10">
         <div className="h-full flex justify-center w-[30vw] shrink-0 items-center">
           <img
             src={`http://image.tmdb.org/t/p/w500/${details.poster_path}`}
