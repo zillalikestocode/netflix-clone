@@ -12,7 +12,7 @@
   src: url("../assets/NetflixSans-Medium.woff2") format("woff2");
 }
 body {
-  @apply bg-black;
+  @apply bg-black scrollbar-hide;
   font-family: Poppins, sans-serif;
 }
 .details {
@@ -40,9 +40,6 @@ body {
 .video::-webkit-scrollbar-thumb {
   @apply bg-netflix rounded-full;
 }
-body::-webkit-scrollbar {
-  width: 7px;
-}
-body::-webkit-scrollbar-thumb {
-  @apply bg-netflix rounded-full;
+.show-details {
+  grid-template-columns: 30vw 60vw;
 }

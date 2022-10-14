@@ -34,10 +34,32 @@ function Header() {
         {session && notLogin && (
           <div className="flex ml-10 items-center space-x-5">
             <Link href="/">
-              <button className="hover:text-red-600">Home</button>
+              <button
+                className={`hover:text-red-600 ${
+                  router.pathname === "/" && "text-red-600"
+                }`}
+              >
+                Home
+              </button>
             </Link>
-            <button className="hover:text-red-600">TV Shows</button>
-            <button className="hover:text-red-600">Movies</button>
+            <Link href="/shows">
+              <button
+                className={`hover:text-red-600 ${
+                  router.pathname === "/shows" && "text-red-600"
+                }`}
+              >
+                TV Shows
+              </button>
+            </Link>
+            <Link href="/movies">
+              <button
+                className={`hover:text-red-600 ${
+                  router.pathname === "/movies" && "text-red-600"
+                }`}
+              >
+                Movies
+              </button>
+            </Link>
             <button className="hover:text-red-600">Recently Added</button>
           </div>
         )}

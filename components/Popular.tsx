@@ -38,7 +38,7 @@ const Popular = ({ popular }: any) => {
           src={`http://image.tmdb.org/t/p/original/${images?.logos?.[0]?.file_path}`}
           className="w-80"
         />
-        <p className="text-sm md:text-md lg:text-lg font-light w-[450px] text-white">
+        <p className="text-sm md:text-md lg:text-lg h-40 text-ellipsis overflow-y-hidden font-light w-[450px] text-white">
           {chosen.overview}
         </p>
         <div className="flex gap-3 items-center">
