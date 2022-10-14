@@ -3,8 +3,9 @@ import Head from "next/head";
 import { useRecoilState } from "recoil";
 import Popular from "../components/Popular";
 import Trending from "../components/trending/Trending";
+import Upcoming from "../components/Upcoming";
 
-const Home: NextPage = ({ popular, trending }: any) => {
+const Home: NextPage = ({ upcoming, popular, trending }: any) => {
   return (
     <div className="text-white ">
       <Head>
@@ -14,6 +15,7 @@ const Home: NextPage = ({ popular, trending }: any) => {
       <main className="video">
         <Popular popular={popular} />
         <Trending trending={trending} />
+        <Upcoming upcoming={upcoming} />
       </main>
     </div>
   );
@@ -30,10 +32,14 @@ export async function getServerSideProps(context: any) {
   const trending = await fetch(
     `https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.NEXT_PUBLIC_API_KEY}`
   ).then((res) => res.json());
+  const upcoming = await fetch(
+    `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US&page=1`
+  ).then((res) => res.json());
   return {
     props: {
       popular: popular.results,
       trending: trending.results,
+      upcoming: upcoming.results,
     },
   };
 }
