@@ -1,12 +1,18 @@
 import Details from "./Details";
 import More from "./More";
 import Overview from "../movie/Overview";
-import Seasons from "./Seasons";
 import Episodes from "./Episodes";
 
 const { motion } = require("framer-motion");
 
-const Navigation = ({ nav, similar, setNav, details, credits, setEpisode }: any) => {
+const Navigation = ({
+  nav,
+  similar,
+  setNav,
+  details,
+  credits,
+  setEpisode,
+}: any) => {
   const navItems = ["Overview", "Episodes", "Details", "More Like This"];
   return (
     <div className="space-y-5 overview">
@@ -34,7 +40,9 @@ const Navigation = ({ nav, similar, setNav, details, credits, setEpisode }: any)
       </div>
       <div>
         {nav === "Overview" && <Overview details={details} credits={credits} />}
-        {nav === "Episodes" && <Episodes details={details} setEpisode={setEpisode} />}
+        {nav === "Episodes" && (
+          <Episodes details={details} setEpisode={setEpisode} />
+        )}
         {nav === "Details" && <Details credits={credits} details={details} />}
         {nav === "More Like This" && <More similar={similar} />}
       </div>
