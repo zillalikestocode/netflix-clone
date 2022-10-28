@@ -9,10 +9,8 @@ function TrendingItem({ movie }: any) {
   };
   const [hover, setHover] = useState(false);
   const [movieGenre, setMovie]: any = useState([]);
-  console.log(movieGenre);
   const [tvGenre, setTv]: any = useState([]);
   const genre = movie?.media_type === "movie" ? movieGenre : tvGenre;
-  console.log(movie);
   useEffect(() => {
     async function fetchImages() {
       const image: any = await fetch(

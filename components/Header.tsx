@@ -4,13 +4,18 @@ import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useRecoilValue } from "recoil";
 import SearchBar from "./SearchBar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function Header() {
+  const [scroll, setScroll]: any = useState();
   const [searchQuery, setQuery] = useState("");
   const [search, setSearch] = useState(false);
   const { data: session }: any = useSession();
   const router = useRouter();
+  function handleScroll() {
+    const position = window.pageYOffset;
+    setScroll(position);
+  }
   const notLogin = router.pathname !== "/login";
   function searchAll() {
     if (searchQuery) {
@@ -18,13 +23,19 @@ function Header() {
     }
     setSearch(true);
   }
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
     <header
       className={`w-full ${
-        router.pathname === "/" ? "fixed" : "sticky bg-black"
+        router.pathname === "/" || "/login" ? "fixed" : "sticky bg-black"
       } z-20`}
     >
-      <nav className={`w-full flex px-10 py-4 text-gray-200 items-center`}>
+      <nav className={`w-full ${scroll > 10 && 'bg-black/50'} flex px-10 py-4 text-gray-200 items-center`}>
         <Link href="/">
           <img
             src="https://image.tmdb.org/t/p/original/wwemzKWzjKYJFfCeiB57q3r4Bcm.svg"
@@ -60,7 +71,6 @@ function Header() {
                 Movies
               </button>
             </Link>
-            <button className="hover:text-red-600">Recently Added</button>
           </div>
         )}
         {session && notLogin && (

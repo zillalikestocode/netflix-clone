@@ -1,5 +1,6 @@
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/solid";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 const { motion } = require("framer-motion");
 
@@ -50,6 +51,16 @@ function SearchPage({ searchItems, page, setPage }: any) {
         {searchItems?.map((item: any, i: any) => {
           return (
             item.poster_path && (
+              <Link
+                href={
+                  item.media_type === "movie" ? "/movie/[id]" : "/show/[id]"
+                }
+                as={
+                  item.media_type === "movie"
+                    ? `/movie/${item.id}`
+                    : `/show/${item.id}`
+                }
+              >
               <motion.div whileHover={hover} className="relative h-fit">
                 <motion.div
                   variants={hide}
@@ -72,6 +83,7 @@ function SearchPage({ searchItems, page, setPage }: any) {
                   src={`http://image.tmdb.org/t/p/w300/${item.poster_path}`}
                 />
               </motion.div>
+            </Link>
             )
           );
         })}

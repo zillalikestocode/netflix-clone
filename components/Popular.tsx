@@ -1,6 +1,7 @@
 import { PlayIcon } from "@heroicons/react/solid";
 import { InformationCircleIcon } from "@heroicons/react/outline";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 const Popular = ({ popular }: any) => {
   const [images, setImages]: any = useState(null);
@@ -42,14 +43,22 @@ const Popular = ({ popular }: any) => {
           {chosen.overview}
         </p>
         <div className="flex gap-3 items-center">
-          <button className="flex items-center text-lg px-3 bg-netflix rounded p-2 text-white gap-2">
-            <PlayIcon className="w-7 h-7" />
-            Play
-          </button>
-          <button className="flex items-center text-lg bg-black/50 rounded p-2 text-white gap-2">
-            <InformationCircleIcon className="w-7 h-7" />
-            More Info
-          </button>
+          <a
+            href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <button className="flex items-center text-lg px-3 bg-netflix rounded p-2 text-white gap-2">
+              <PlayIcon className="w-7 h-7" />
+              Play
+            </button>
+          </a>
+          <Link href="/movie/[id]" as={`/movie/${chosen.id}`}>
+            <button className="flex items-center text-lg bg-black/50 rounded p-2 text-white gap-2">
+              <InformationCircleIcon className="w-7 h-7" />
+              More Info
+            </button>
+          </Link>
         </div>
       </div>
     </div>

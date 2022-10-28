@@ -12,7 +12,7 @@
   src: url("../assets/NetflixSans-Medium.woff2") format("woff2");
 }
 body {
-  @apply bg-black scrollbar-hide;
+  @apply bg-black ;
   font-family: Poppins, sans-serif;
 }
 .details {
@@ -40,6 +40,31 @@ body {
 .video::-webkit-scrollbar-thumb {
   @apply bg-netflix rounded-full;
 }
+body::-webkit-scrollbar {
+  width: 7px;
+}
+body::-webkit-scrollbar-thumb {
+  @apply bg-netflix rounded-full;
+}
 .show-details {
   grid-template-columns: 30vw 60vw;
+}
+.upcoming:nth-child(1) {
+  @apply ml-10;
+}
+.swiper-scrollbar-drag {
+  @apply !bg-netflix;
+}
+.swiper-pagination-bullet-active {
+  @apply !bg-netflix !w-6 !rounded-md !h-2;
+}
+.swiper-pagination-bullet {
+  @apply !bg-netflixDark;
+}
+.credits {
+  position: relative;
+}
+.credits::after {
+  content: "";
+  @apply absolute bg-netflix z-10 h-1 w-full -bottom-1  left-0;
 }
