@@ -3,6 +3,7 @@ import type { AppProps } from "next/app";
 import { SessionProvider } from "next-auth/react";
 import Header from "../components/Header";
 import { RecoilRoot } from "recoil";
+import Footer from "../components/Footer";
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }: any) {
   return (
@@ -11,6 +12,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: any) {
         <Header />
         <Component {...pageProps} />
       </RecoilRoot>
+      <Footer />
     </SessionProvider>
   );
 }

@@ -9,8 +9,8 @@ module.exports = {
       colors: {
         transparent: "transparent",
         current: "currentColor",
-        netflix: "#e50914",
-        netflixDark: "#bb1d24",
+        "netflix": "#e50914",
+        "netflixDark": "#bb1d24",
       },
     },
   },

@@ -1,9 +1,53 @@
-import { StarIcon } from "@heroicons/react/solid";
+import { PlayIcon, StarIcon } from "@heroicons/react/solid";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Navigation from "../../components/movie/Navigation";
 import Similar from "../../components/movie/Similar";
+const { motion, AnimatePresence } = require("framer-motion");
+
+function Play() {
+  const [show, setShow] = useState(false);
+  const reveal = {
+    initial: {
+      width: 0,
+    },
+    animate: {
+      width: "auto",
+    },
+    exit: {
+      width: 0,
+      transition: {
+        duration: 0.2,
+      },
+    },
+  };
+  return (
+    <motion.a
+      href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+      target="_blank"
+      rel="noopener noreferrer"
+      onMouseEnter={() => setShow(true)}
+      onMouseLeave={() => setShow(false)}
+      className="bg-netflix flex items-center gap-2 cursor-pointer text-white p-3 left-[30vw] bottom-[20px] z-50 absolute"
+    >
+      <PlayIcon className="w-10 h-10 " />
+      <AnimatePresence>
+        {show && (
+          <motion.h4
+            initial="initial"
+            exit="exit"
+            animate="animate"
+            className="text-xl overflow-hidden font-medium"
+            variants={reveal}
+          >
+            Play
+          </motion.h4>
+        )}
+      </AnimatePresence>
+    </motion.a>
+  );
+}
 
 export default function ({ details, similar }: any) {
   const [credits, setCredits]: any = useState(null);
@@ -24,7 +68,8 @@ export default function ({ details, similar }: any) {
       <Head>
         <title>{details.title}</title>
       </Head>
-      <div className="flex items-end px-10 gap-10">
+      <div className="flex items-end px-10 gap-10 relative">
+        <Play />
         <div className="h-full flex justify-center w-[30vw] shrink-0 items-center">
           <img
             src={`http://image.tmdb.org/t/p/w500/${details.poster_path}`}
