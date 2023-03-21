@@ -8,7 +8,7 @@
   "dependencies": {
     "@heroicons/react": "v1",
     "framer-motion": "^6.5.1",
-    "next": "latest",
+    "next": "12",
     "next-auth": "^4.12.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
